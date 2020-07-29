@@ -11,7 +11,20 @@
 </head>
 <body>
     <div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-        <div style="width: 50%"></div>
+        <div style="width: 50%">
+
+            <div class="header">
+                <div class="header-title">My Portfolio</div>
+                <div class="header-name">Nick Barak</div>
+            </div>
+
+            <div id="overview">
+                <strong id="overview-title"></strong>
+                <div id="overview-content"></div>
+                <button id="transition-button"></button>
+            </div>
+
+        </div>
         
         <section class="swiper-container loading" style="width: 40%">
             <div class="swiper-wrapper">
@@ -39,6 +52,8 @@
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev swiper-button-white"></div>
             <div class="swiper-button-next swiper-button-white"></div>
+
+            <div class="swiper-help">Spin the block to navigate</div>
         </section>
 
         <div style="width: 10%"></div>
@@ -46,8 +61,11 @@
       
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js" ></script>
+      <script src="./api.js"></script>
       <script>
-        var sliderSelector = '.swiper-container',
+        const loadGitHub = _=> window.open('https://github.com/nickBarak', '_blank');
+
+        let sliderSelector = '.swiper-container',
         options = {
             init: false,
             loop: true,
@@ -85,8 +103,39 @@
                 }
             }
         };
-        var mySwiper = new Swiper(sliderSelector, options);
+        let mySwiper = new Swiper(sliderSelector, options);
         mySwiper.init();
+        mySwiper.on('slideChange', e => {
+            let overview;
+            switch (mySwiper.realIndex) {
+                default: return;
+                case 0:
+                    overview = 'Home';
+                    break;
+                case 1:
+                    overview = 'Apps';
+                    break;
+                case 2:
+                    overview = 'Skills';
+                    break;
+                case 3:
+                    overview = 'Appendix';
+            }
+            document.getElementById('overview-title').innerHTML = overview;
+            document.getElementById('overview-content').innerHTML = overviews[overview];
+            if (overview === 'Home') {
+                document.getElementById('transition-button').innerHTML = 'My GitHub';
+                document.getElementById('transition-button').addEventListener('click', loadGitHub);
+            } else {
+                document.getElementById('transition-button').innerHTML = `Click to view ${overview.toLowerCase()}`;
+                document.getElementById('transition-button').removeEventListener('click', loadGitHub);
+            }
+        });
+
+        document.getElementById('overview-title').innerHTML = 'Home';
+        document.getElementById('overview-content').innerHTML = overviews['Home'];
+        document.getElementById('transition-button').innerHTML = `My GitHub`;
+        document.getElementById('transition-button').addEventListener('click', loadGitHub);
     </script>
 </body>
 </html>

@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Here I display my principal projects with links to corresponding demonstration environments and repositories",
   "main": "index.js",
-  "scripts": { "sass": "node-sass -w . -o ." },
+  "scripts": {
+    "sass": "node-sass -w . -o ."
+  },
   "author": "Nick Barak",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "swiper": "^5.3.6"
   }
 }

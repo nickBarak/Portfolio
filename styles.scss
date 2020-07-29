@@ -13,8 +13,84 @@
 }
 
 body {
+    // background-image: radial-gradient(#443844 40%, #554855 70%, #666666);
     background-image: radial-gradient(skyblue 40%, powderblue 70%, seashell);
+    // background-image: radial-gradient(royalblue 40%, rgb(110,110,240) 70%, rgb(135,125,250));
 }
+
+.header {
+    background-color: rgba(111,111,111, 1);
+    border-radius: 10px;
+    padding: 4px 8px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block;
+    top: 2.5rem;
+    left: 80px;
+    position: absolute;
+    font-size: 1.5rem;
+
+    &::before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background-color: white;
+        left: 5px;
+        content: '';
+        z-index: -1;
+        top: .35rem;
+    }
+
+    &::after {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background-color: black;
+        left: 10px;
+        content: '';
+        z-index: -2;
+        top: .75rem;
+    }
+
+    >.header-title{
+        font-size: 3rem;
+    }
+}
+
+#overview {
+    color: gray;
+    width: 60%;
+    margin: auto 25% auto 15%;
+    font-size: 1.8rem;
+    transform: translateY(-5rem);
+    // text-align: justify;
+
+    >#overview-title {
+    }
+    >#overview-content {
+        margin: 1rem auto 2rem auto;
+    }
+}
+
+#transition-button {
+    background-color: white;
+    border-radius: 14px;
+    padding: 5px 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.4rem;
+    color: gray;
+    cursor: pointer;
+}
+
+#transition-button:hover,
+#transition-button:hover a {
+    background-color: #666;
+    color: white;
+}
+
+
 
 .swiper-container {
     width: 100%;
@@ -62,7 +138,7 @@ translate: 0 -10rem;
 
 .swiper-slide::after {
     content:"";
-    background-image: url('img/nav/rocks.jpg');
+    background-image: url('img/nav/mount.jpg');
     background-position: bottom;
     background-size: cover;
     transform:  scaleY(-1);
@@ -132,6 +208,13 @@ transform:translateX(50px);
 }
 .swiper-cube-shadow {
     translate: 0 20px;
+}
+
+.swiper-help {
+    color: gray;
+    text-align: center;
+    margin-top: 6.5rem;
+    font-size: 1.3rem;
 }
 
 // Mediaqueries
