@@ -58,6 +58,23 @@ body {
   color: white;
 }
 
+button {
+  margin: .75rem;
+}
+
+button:nth-child(1) {
+  background-color: #ee6a6a;
+  color: white;
+}
+
+button:nth-child(1):hover {
+  background-color: #ff5555;
+}
+
+p {
+  margin: 1rem 0;
+}
+
 #page {
   position: absolute;
   top: 150%;
@@ -317,6 +334,78 @@ tr:nth-child(1) {
 
 .skill td:nth-child(even) {
   border-left: 2px solid #ddd;
+}
+
+.app-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.app {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: -webkit-transform 175ms ease-out;
+  transition: -webkit-transform 175ms ease-out;
+  transition: transform 175ms ease-out;
+  transition: transform 175ms ease-out, -webkit-transform 175ms ease-out;
+  margin: 2.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app img {
+  cursor: pointer;
+  width: 35rem;
+  height: 30rem;
+  border: 6px solid black;
+  border-radius: 15px;
+  -webkit-transition: border-color 300ms ease-out, height 300ms ease-in-out, -webkit-transform 300ms ease-out;
+  transition: border-color 300ms ease-out, height 300ms ease-in-out, -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out, border-color 300ms ease-out, height 300ms ease-in-out;
+  transition: transform 300ms ease-out, border-color 300ms ease-out, height 300ms ease-in-out, -webkit-transform 300ms ease-out;
+}
+
+.app img:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+  border-color: #6677ff;
+}
+
+.app label {
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+  cursor: pointer;
+  margin-top: 1.2rem;
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
+}
+
+.app-info {
+  text-align: justify;
+  opacity: 0;
+  -webkit-transform: translateY(100vh);
+          transform: translateY(100vh);
+  -webkit-transition: opacity 200ms ease-in, -webkit-transform 200ms ease-in;
+  transition: opacity 200ms ease-in, -webkit-transform 200ms ease-in;
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+  transition: opacity 200ms ease-in, transform 200ms ease-in, -webkit-transform 200ms ease-in;
+  font-size: 1.25rem;
+  line-height: 1.6rem;
 }
 
 @media screen and (max-width: 1500px) {

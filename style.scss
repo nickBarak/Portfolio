@@ -64,6 +64,23 @@ body {
     color: white;
 }
 
+button {
+    margin: .75rem;
+}
+
+button:nth-child(1) {
+    background-color: #ee6a6a;
+    color: white;
+}
+
+button:nth-child(1):hover {
+    background-color: #ff5555;
+}
+
+p {
+    margin: 1rem 0;
+}
+
 #page {
     position: absolute;
     top: 150%;
@@ -319,6 +336,63 @@ tr:nth-child(1) {
 
 .skill td:nth-child(even) {
     border-left: 2px solid #ddd;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.app {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 175ms ease-out;
+    margin: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    // max-height: 100%;
+}
+
+.app img {
+    cursor: pointer;
+    width: 35rem;
+    height: 30rem;
+    border: 6px solid black;
+    border-radius: 15px;
+    transition: transform 300ms ease-out, border-color 300ms ease-out, height 300ms ease-in-out;
+}
+
+.app img:hover {
+    transform: scale(1.04);
+    border-color: #6677ff;
+}
+
+.app:nth-child(1) img {
+    // transform: rotate3d(0, 1, 0, 30deg);
+}
+
+.app:nth-child(2) img {
+    // transform: rotate3d(0, 1, 0, -30deg);
+}
+
+.app label {
+    transition: opacity 200ms ease-in;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    // font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    font-size: 1.25rem;
+    // font-weight: bold;
+}
+
+.app-info {
+    text-align: justify;
+    opacity: 0;
+    transform: translateY(100vh);
+    transition: opacity 200ms ease-in, transform 200ms ease-in;
+    font-size: 1.25rem;
+    line-height: 1.6rem;
 }
 
 @media screen and (max-width: 1500px) {

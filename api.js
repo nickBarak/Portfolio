@@ -1,4 +1,4 @@
-export const overviews = {
+const overviews = {
     Home: 
         `I recently graduated from the University of California, Santa Barbara with a degree in Economics & Accounting. I am now pursuing a professional position as a software developer. I have self-studied coding rigorously throughout the later portion of my time in college and am prepared for a position in web development - though I am open to and interested in exploring other facets of the industry if needed.`,
     Apps:
@@ -8,22 +8,26 @@ export const overviews = {
     Appendix: 'Appendix Page'
 }
 
-export const pageContent = {
+const pageContent = {
     Home: [''],
     Apps: [
-        `<div style="display: flex; justify-content: space-evenly; width: 100%; margin-top: 3rem; height: 80%; align-items: center;">
-            <div class="apps">
+        `<div class="app-container">
+            <div class="app" data-key="0">
                 <img src="/img/apps/mock_nexus.png" onclick="showAppDetails(0)">
                 <label onclick="showAppDetails(0)">Mock Nexus</label>
             </div>
-            <div class="apps">
-                <img class="app-image-2" src="/img/apps/choosie.png" onclick="showAppDetails(1)">
+            <div class="app" data-key="1">
+                <img src="/img/apps/choosie.png" onclick="showAppDetails(1)">
                 <label onclick="showAppDetails(1)">Choosie<label>
+            </div>
+            <div class="app" data-key="2">
+                <img src="/img/apps/square_match.png" onclick="showAppDetails(2)">
+                <label onclick="showAppDetails(2)">Square Match<label>
             </div>
         </div>`,
         
         [
-        `<div style="width: 55%; text-align: justify; opacity: 0; transition: opacity 200ms ease-in;">
+        `<div class="app-info">
             <strong style="color: #555">Mock Nexus</strong>
             <p>
                 This clone of the UCSB newspaper site employs the Next.js framework to achieve server-side rendering as a React application. The app comprises routes "/categories," "/articles," "/authors" and "/about," with the "/categories" route extending into a "/subcategories" subroute. Pages in the "/categories" and "/authors" routes (as well as the "/subcategories" subroute) also include a "/page" subroute. The "/categories," "/articles" and "/authors" routes and all "/page" and "/subcategories" subroutes extend dynamically, with "/articles" and "/authors" including an [id] parameter and the others being self-explanatory. The use of Next.js' 'getStaticProps' and 'getStaticPaths' functions enabled application-wide pre-rendering of HTML, even among dynamic routes, ensuring miniscule load-times for all user-navigation.
@@ -33,14 +37,14 @@ export const pageContent = {
             </p>
 
             <div style="display:flex">
-                <button class="button" onclick="openURL('https://mock-nexus.com')">Live Demo</button>
+                <button class="button" onclick="openURL('https://mocknexus.com')">Live Demo</button>
                 <button class="button" onclick="openURL('https://dailynexus.com')">Model Site</button>
-                <button class="button" onclick="openURL('https://github.com/nickBarak/Mock_Nexus')">Code (App)</button>
+                <button class="button" onclick="openURL('https://github.com/nickBarak/Mock_Nexus-Generic')">Code (App)</button>
                 <button class="button" onclick="openURL('https://github.com/nickBarak/Nexus_Data_Crawler')">Code (Spider)</button>
             </div>
         </div>`,
 
-        `<div style="width: 55%; text-align: justify; opacity: 0; transition: transform 200ms ease-in;">
+        `<div class="app-info">
             <strong>Choosie</strong>
 
             <p>

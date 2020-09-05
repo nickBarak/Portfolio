@@ -1,26 +1,3 @@
-import { overviews, pageContent } from './api.js';
-
-function showAppDetails(app) {
-    var appDiv = document.getElementsByClassName('apps')[app];
-    appDiv.parentElement.children[app ? 0 : 1].style.transform = `translateX(${app ? '-' : ''}125%)`;
-    appDiv.parentElement.children[app ? 0 : 1].style.opacity = 0;
-    setTimeout(_=> appDiv.parentElement.children[app ? 0 : 1].style.display = 'none', 150);
-    if (app) {
-        appDiv.innerHTML = pageContent['Apps'][1][app] + appDiv.innerHTML;
-    } else {
-        appDiv.innerHTML += pageContent['Apps'][1][app];
-    }
-    appDiv.children[app ? 2 : 1].style.opacity = 0;
-    setTimeout(_=> appDiv.children[app ? 2 : 1].style.display = 'none', 150);
-    appDiv.style.flexDirection = 'row';
-    appDiv.style.justifyContent = 'space-around';
-    appDiv.children[app ? 0 : 2].style.opacity = 1;
-    
-    pageEl.children[0].style.justifyContent = 'center';
-    pageEl.style.alignItems = 'center';
-    appDiv.style.alignItems = 'center';
-}
-
 function maximizeSwiper() {
     blockSwiper.el.style.transform = 'scale(1)';
     // blockSwiper.el.style.width = '100%';
@@ -71,6 +48,20 @@ function minimizeSwiper() {
     pageEl.style.top = '10rem';
 }
 
+
+const overviewEl = document.getElementById('overview'),
+      pageEl = document.getElementById('page'),
+      [overviewTitle, overviewContent, overviewButton] = overviewEl.children,
+      openURL = (url, newTab=true)=> window.open(url, newTab ? '_blank' : '#'),
+      loadGitHub = _=> openURL('https://github.com/nickBarak'),
+      [swiperHelpEl] = document.getElementsByClassName('swiper-help'),
+      [swiperPaginationEl] = document.getElementsByClassName('swiper-pagination'),
+      [swiperArrowLeft, swiperArrowRight] = document.getElementsByClassName('swiper-button-white');
+
+overviewTitle.innerHTML = 'Home';
+overviewButton.addEventListener('click', loadGitHub);
+
+
 let blockOptions = {
     init: false,
     loop: true,
@@ -110,51 +101,3 @@ let blockOptions = {
 };
 let blockSwiper = new Swiper('.block-swiper', blockOptions);
 blockSwiper.init();
-
-
-
-const overviewEl = document.getElementById('overview'),
-      pageEl = document.getElementById('page'),
-      [overviewTitle, overviewContent, overviewButton] = overviewEl.children,
-      openURL = (url, newTab=true)=> window.open(url, newTab ? '_blank' : '#'),
-      loadGitHub = _=> openURL('https://github.com/nickBarak'),
-      [swiperHelpEl] = document.getElementsByClassName('swiper-help'),
-      [swiperPaginationEl] = document.getElementsByClassName('swiper-pagination'),
-      [swiperArrowLeft, swiperArrowRight] = document.getElementsByClassName('swiper-button-white');
-
-overviewTitle.innerHTML = 'Home';
-overviewContent.innerHTML = overviews['Home'];
-overviewButton.innerHTML = 'My GitHub';
-overviewButton.addEventListener('click', loadGitHub);
-
-
-
-
-blockSwiper.on('slideChange', e => {
-    let title;
-    switch (blockSwiper.realIndex) {
-        default: console.log(blockSwiper.realIndex); return;
-        case 0:
-            title = 'Home';
-            break;
-        case 1:
-            title = 'Apps';
-            break;
-        case 2:
-            title = 'Skills';
-            break;
-        case 3:
-            title = 'Appendix';
-    }
-    overviewTitle.innerHTML = title;
-    overviewContent.innerHTML = overviews[title];
-    pageEl.innerHTML = `${pageContent[title][0]}`;
-    if (title === 'Home') {
-        overviewButton.innerHTML = 'My GitHub';
-        overviewButton.addEventListener('click', loadGitHub);
-    } else {
-        overviewButton.innerHTML = `Click to view ${title.toLowerCase()}`;
-        overviewButton.removeEventListener('click', loadGitHub);
-        overviewButton.addEventListener('click', minimizeSwiper);
-    }
-});
