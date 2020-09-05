@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" defer src="./index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="partition">
+
+            <div id="overview">
+                <strong></strong>
+                <div style="margin: 1rem auto 2rem auto;"></div>
+                <button class="button"></button>
+            </div>
+                
+            <div id="page">
+                
+            </div>
+        </div>
+
+        <div class="partition">
+            <section class="block-swiper swiper-container loading">
+                <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url(img/nav/home.jpg)">
+                            <img src="img/nav/home.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".75">Home</p>
+                        </div>
+
+                        <div class="swiper-slide" style="background-image:url(img/nav/apps.jpg)">
+                            <img src="img/nav/apps.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".75">Apps</p>
+                        </div>
+
+                        <div class="swiper-slide" style="background-image:url(img/nav/skills.jpg)">
+                            <img src="img/nav/skills.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Skills</p>
+                        </div>
+
+                        <div class="swiper-slide" style="background-image:url(img/nav/appendix.jpg)">
+                            <img src="img/nav/appendix.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Appendix</p>
+                        </div>
+                </div>
+                
+                <div class="swiper-pagination swiper-augment"></div>
+                <div class="swiper-button-prev swiper-button-white swiper-augment"></div>
+                <div class="swiper-button-next swiper-button-white swiper-augment"></div>
+
+                <div class="swiper-help swiper-augment">Spin the block to navigate</div>
+            </section>
+        </div>
+
+        <div class="header">
+            <div class="header-title">My Portfolio</div>
+            <div class="header-name">Nick Barak</div>
+        </div>
+
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+</body>
+</html>

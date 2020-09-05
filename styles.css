@@ -14,6 +14,30 @@ body {
   background-image: radial-gradient(skyblue 40%, powderblue 70%, seashell);
 }
 
+button {
+  margin: .75rem;
+}
+
+button:nth-child(1) {
+  background-color: #ee6a6a;
+  color: white;
+}
+
+button:nth-child(1):hover {
+  background-color: #ff5555;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+.container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .header {
   background-color: #6f6f6f;
   border-radius: 10px;
@@ -21,10 +45,9 @@ body {
   color: white;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: inline-block;
-  top: 2.5rem;
-  left: 80px;
-  position: absolute;
+  margin: 3.5rem 0 0 4rem;
   font-size: 1.5rem;
+  position: relative;
 }
 
 .header::before {
@@ -58,17 +81,17 @@ body {
 #overview {
   color: gray;
   width: 60%;
-  margin: auto 25% auto 15%;
+  margin-left: 5rem;
+  margin-top: 20%;
   font-size: 1.8rem;
-  -webkit-transform: translateY(-5rem);
-          transform: translateY(-5rem);
+  position: relative;
+  -webkit-transition: left 300ms ease-in, max-height 300ms ease-in, -webkit-transform 300ms ease-in;
+  transition: left 300ms ease-in, max-height 300ms ease-in, -webkit-transform 300ms ease-in;
+  transition: transform 300ms ease-in, left 300ms ease-in, max-height 300ms ease-in;
+  transition: transform 300ms ease-in, left 300ms ease-in, max-height 300ms ease-in, -webkit-transform 300ms ease-in;
 }
 
-#overview > #overview-content {
-  margin: 1rem auto 2rem auto;
-}
-
-#transition-button {
+.button {
   background-color: white;
   border-radius: 14px;
   padding: 5px 10px;
@@ -78,30 +101,37 @@ body {
   cursor: pointer;
 }
 
-#transition-button:hover,
-#transition-button:hover a {
+.button:hover,
+.button:hover a {
   background-color: #666;
   color: white;
 }
 
-.swiper-container {
-  width: 100%;
+.block-swiper {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   height: 28vw;
-  -webkit-transition: opacity .6s ease;
-  transition: opacity .6s ease;
+  width: 100%;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transition: opacity .6s ease, top 300ms ease-out, right 300ms ease-out, -webkit-transform 300ms ease-out;
+  transition: opacity .6s ease, top 300ms ease-out, right 300ms ease-out, -webkit-transform 300ms ease-out;
+  transition: opacity .6s ease, top 300ms ease-out, right 300ms ease-out, transform 300ms ease-out;
+  transition: opacity .6s ease, top 300ms ease-out, right 300ms ease-out, transform 300ms ease-out, -webkit-transform 300ms ease-out;
 }
 
-.swiper-container.swiper-container-coverflow {
+.block-swiper.swiper-container-coverflow {
   padding-top: 2%;
 }
 
-.swiper-container.loading {
+.block-swiper.loading {
   opacity: 0;
   visibility: hidden;
 }
 
-.swiper-container:hover .swiper-button-prev,
-.swiper-container:hover .swiper-button-next {
+.block-swiper:hover .swiper-button-prev,
+.block-swiper:hover .swiper-button-next {
   -webkit-transform: translateX(0);
           transform: translateX(0);
   opacity: 1;
@@ -131,7 +161,7 @@ body {
   border-radius: 16px;
 }
 
-.swiper-slide::after {
+.block-swiper .swiper-slide::after {
   content: "";
   background-image: url("img/nav/mount.jpg");
   background-position: bottom;
@@ -145,7 +175,7 @@ body {
   opacity: .97;
 }
 
-.swiper-slide::before {
+.block-swiper .swiper-slide::before {
   z-index: 1;
   content: "";
   width: inherit;
@@ -215,6 +245,133 @@ body {
   font-size: 1.3rem;
 }
 
+#page {
+  top: 150%;
+  -webkit-transition: top 300ms ease-in;
+  transition: top 300ms ease-in;
+  position: absolute;
+  left: 5rem;
+  right: 5rem;
+  font-size: 1.5rem;
+  color: darkslategray;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.apps {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: -webkit-transform 175ms ease-out;
+  transition: -webkit-transform 175ms ease-out;
+  transition: transform 175ms ease-out;
+  transition: transform 175ms ease-out, -webkit-transform 175ms ease-out;
+}
+
+.apps img {
+  cursor: pointer;
+  width: 35rem;
+  height: 30rem;
+  -webkit-transition: height 150ms ease-out, width 150ms ease-out, -webkit-transform 150ms ease-out;
+  transition: height 150ms ease-out, width 150ms ease-out, -webkit-transform 150ms ease-out;
+  transition: transform 150ms ease-out, height 150ms ease-out, width 150ms ease-out;
+  transition: transform 150ms ease-out, height 150ms ease-out, width 150ms ease-out, -webkit-transform 150ms ease-out;
+}
+
+.apps img:hover {
+  height: 31rem;
+  width: 36rem;
+}
+
+.apps:nth-child(1) img {
+  -webkit-transform: rotateX(-25deg);
+          transform: rotateX(-25deg);
+}
+
+.apps:nth-child(2) img {
+  -webkit-transform: rotateY(25deg);
+          transform: rotateY(25deg);
+}
+
+.apps label {
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+th, td {
+  border: 2px solid black;
+  width: 10rem;
+  text-align: center;
+  padding: 1rem;
+  white-space: break-spaces;
+}
+
+tr:nth-child(even) {
+  background-color: #fff;
+}
+
+tr:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+tr:nth-child(1) {
+  background-color: transparent;
+}
+
+.skills-list {
+  table-layout: fixed;
+  width: 30rem;
+  border: none;
+}
+
+.skills-list th {
+  color: white;
+  font-weight: bold;
+  border: none;
+  font-size: 1.2rem;
+  background-color: salmon;
+}
+
+.skills-list th:nth-child(1) {
+  border-radius: 8px 0 0 0;
+}
+
+.skills-list th:nth-child(2) {
+  border-radius: 0 8px 0 0;
+}
+
+.skills-list tr:last-child {
+  border-bottom: 2px solid salmon;
+}
+
+.skill {
+  display: 'flex';
+}
+
+.skill td {
+  height: 5rem;
+  overflow: hidden;
+  border: none;
+}
+
+.skill td:nth-child(even) {
+  border-left: 2px solid #ddd;
+}
+
 @media (max-width: 1180px) {
   .swiper-slide .title {
     font-size: 25px;
@@ -225,10 +382,10 @@ body {
 }
 
 @media (max-width: 1023px) {
-  .swiper-container {
+  .block-swiper {
     height: 40vw;
   }
-  .swiper-container.swiper-container-coverflow {
+  .block-swiper.swiper-container-coverflow {
     padding-top: 0;
   }
 }

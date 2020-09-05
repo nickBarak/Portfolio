@@ -7,11 +7,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js" ></script>
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" />
+    <script defer src="./main.js"></script>
     <title>Nick Barak Portfolio</title>
 </head>
 <body>
-    <div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-        <div style="width: 50%">
+    <div class="container">
+        <div style="width: 50%; height: 100%;">
 
             <div class="header">
                 <div class="header-title">My Portfolio</div>
@@ -19,54 +20,57 @@
             </div>
 
             <div id="overview">
-                <strong id="overview-title"></strong>
-                <div id="overview-content"></div>
-                <button id="transition-button"></button>
+                <strong></strong>
+                <div style="margin: 1rem auto 2rem auto;"></div>
+                <button class="button"></button>
+            </div>
+                
+            <div id="page">
+                
             </div>
 
         </div>
         
-        <section class="swiper-container loading" style="width: 40%">
-            <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(img/nav/home.jpg)">
-                        <img src="img/nav/home.jpg" class="entity-img" />
-                        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".75">Home</p>
-                    </div>
+        <div style="width: 40%; display: flex; height: 100vh;">
+            <section class="block-swiper swiper-container loading">
+                <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url(img/nav/home.jpg)">
+                            <img src="img/nav/home.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".75">Home</p>
+                        </div>
 
-                    <div class="swiper-slide" style="background-image:url(img/nav/apps.jpg)">
-                        <img src="img/nav/apps.jpg" class="entity-img" />
-                        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".75">Apps</p>
-                    </div>
+                        <div class="swiper-slide" style="background-image:url(img/nav/apps.jpg)">
+                            <img src="img/nav/apps.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".75">Apps</p>
+                        </div>
 
-                    <div class="swiper-slide" style="background-image:url(img/nav/skills.jpg)">
-                        <img src="img/nav/skills.jpg" class="entity-img" />
-                        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Skills</p>
-                    </div>
+                        <div class="swiper-slide" style="background-image:url(img/nav/skills.jpg)">
+                            <img src="img/nav/skills.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Skills</p>
+                        </div>
 
-                    <div class="swiper-slide" style="background-image:url(img/nav/appendix.jpg)">
-                        <img src="img/nav/appendix.jpg" class="entity-img" />
-                        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Appendix</p>
-                    </div>
-            </div>
-        
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev swiper-button-white"></div>
-            <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-slide" style="background-image:url(img/nav/appendix.jpg)">
+                            <img src="img/nav/appendix.jpg" class="entity-img" />
+                            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Appendix</p>
+                        </div>
+                </div>
+            
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
 
-            <div class="swiper-help">Spin the block to navigate</div>
-        </section>
+                <div class="swiper-help">Spin the block to navigate</div>
+            </section>
+        </div>
 
-        <div style="width: 10%"></div>
-      </div>
+        <!-- <div style="width: 10%"></div> -->
+    </div>
       
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js" ></script>
       <script src="./api.js"></script>
       <script>
-        const loadGitHub = _=> window.open('https://github.com/nickBarak', '_blank');
-
-        let sliderSelector = '.swiper-container',
-        options = {
+        let blockOptions = {
             init: false,
             loop: true,
             speed:1000,
@@ -103,39 +107,96 @@
                 }
             }
         };
-        let mySwiper = new Swiper(sliderSelector, options);
-        mySwiper.init();
-        mySwiper.on('slideChange', e => {
-            let overview;
-            switch (mySwiper.realIndex) {
-                default: return;
+        let blockSwiper = new Swiper('.block-swiper', blockOptions);
+        blockSwiper.init();
+
+        function maximizeSwiper() {
+            blockSwiper.el.style.transform = 'scale(1)';
+            blockSwiper.el.style.width = '100%';
+            blockSwiper.el.style.cursor = 'grab';
+            setTimeout(_=> { blockSwiper.el.style.position = 'relative' }, 125);
+            blockSwiper.el.removeEventListener('click', maximizeSwiper);
+            
+            [swiperPaginationEl, swiperArrowLeft, swiperArrowRight].map(({style}) => { style.display = 'block' });
+
+            swiperHelpEl.innerHTML = 'Spin the block to navigate';
+            swiperHelpEl.style.fontSize = '1.3rem';
+
+            overviewEl.style.transform = 'translateX(0)';
+
+            pageEl.style.top = '150%';
+            setTimeout(_=> { pageEl.style.visibility = 'hidden' }, 300);
+        }
+
+        function minimizeSwiper() {
+            blockSwiper.el.style.position = 'absolute';
+            blockSwiper.el.style.transform = 'scale(.175)';
+            blockSwiper.el.style.top = '5rem';
+            blockSwiper.el.style.right = '5rem';
+            blockSwiper.el.style.width = '40%';
+            blockSwiper.el.style.cursor = 'pointer';
+            blockSwiper.el.addEventListener('click', maximizeSwiper);
+
+            [swiperPaginationEl, swiperArrowLeft, swiperArrowRight].map(({style}) => { style.display = 'none' });
+
+            swiperHelpEl.innerHTML = 'Click to return';
+            swiperHelpEl.style.fontSize = '5rem';
+
+            overviewEl.style.transform = 'translateX(-135%)';
+
+            pageEl.style.visibility = 'visible';
+            pageEl.style.top = '13rem';
+        }
+
+        function showAppDetails(app) {
+            var appDiv = document.getElementsByClassName('apps')[app];
+            appDiv.parentElement.children[app ? 0 : 1].style.transform = `translateX(${app ? '-' : ''}125%)`;
+            appDiv.parentElement.children[app ? 0 : 1].style.opacity = 0;
+            setTimeout(_=> appDiv.parentElement.children[app ? 0 : 1].style.display = 'none', 150);
+            if (app) {
+                appDiv.innerHTML = pageContent['Apps'][1][app] + appDiv.innerHTML;
+            } else {
+                appDiv.innerHTML += pageContent['Apps'][1][app];
+            }
+            appDiv.children[app ? 2 : 1].style.opacity = 0;
+            setTimeout(_=> appDiv.children[app ? 2 : 1].style.display = 'none', 150);
+            appDiv.style.flexDirection = 'row';
+            appDiv.style.justifyContent = 'space-around';
+            appDiv.children[app ? 0 : 2].style.opacity = 1;
+            
+            pageEl.children[0].style.justifyContent = 'center';
+            pageEl.style.alignItems = 'center';
+            appDiv.style.alignItems = 'center';
+        }
+
+        blockSwiper.on('slideChange', e => {
+            let title;
+            switch (blockSwiper.realIndex) {
+                default: console.log(blockSwiper.realIndex); return;
                 case 0:
-                    overview = 'Home';
+                    title = 'Home';
                     break;
                 case 1:
-                    overview = 'Apps';
+                    title = 'Apps';
                     break;
                 case 2:
-                    overview = 'Skills';
+                    title = 'Skills';
                     break;
                 case 3:
-                    overview = 'Appendix';
+                    title = 'Appendix';
             }
-            document.getElementById('overview-title').innerHTML = overview;
-            document.getElementById('overview-content').innerHTML = overviews[overview];
-            if (overview === 'Home') {
-                document.getElementById('transition-button').innerHTML = 'My GitHub';
-                document.getElementById('transition-button').addEventListener('click', loadGitHub);
+            overviewTitle.innerHTML = title;
+            overviewContent.innerHTML = overviews[title];
+            pageEl.innerHTML = `${pageContent[title][0]}`;
+            if (title === 'Home') {
+                overviewButton.innerHTML = 'My GitHub';
+                overviewButton.addEventListener('click', loadGitHub);
             } else {
-                document.getElementById('transition-button').innerHTML = `Click to view ${overview.toLowerCase()}`;
-                document.getElementById('transition-button').removeEventListener('click', loadGitHub);
+                overviewButton.innerHTML = `Click to view ${title.toLowerCase()}`;
+                overviewButton.removeEventListener('click', loadGitHub);
+                overviewButton.addEventListener('click', minimizeSwiper);
             }
         });
-
-        document.getElementById('overview-title').innerHTML = 'Home';
-        document.getElementById('overview-content').innerHTML = overviews['Home'];
-        document.getElementById('transition-button').innerHTML = `My GitHub`;
-        document.getElementById('transition-button').addEventListener('click', loadGitHub);
     </script>
 </body>
 </html>
