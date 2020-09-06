@@ -12,63 +12,87 @@ const pageContent = {
     Home: [''],
     Apps: [
         `<div class="app-container">
-            <div class="app" data-key="0">
+            <div class="app" data-key="0" style="transition: transform 350ms ease-in, max-height 500ms ease-in-out">
                 <img src="/img/apps/mock_nexus.png" onclick="showAppDetails(0)">
                 <label onclick="showAppDetails(0)">Mock Nexus</label>
             </div>
-            <div class="app" data-key="1">
+            <div class="app" data-key="1" style="transition: transform 350ms ease-in, max-height 500ms ease-in-out">
                 <img src="/img/apps/choosie.png" onclick="showAppDetails(1)">
                 <label onclick="showAppDetails(1)">Choosie<label>
             </div>
-            <div class="app" data-key="2">
+            <div class="app" data-key="2" style="transition: transform 350ms ease-in, max-height 500ms ease-in-out">
                 <img src="/img/apps/square_match.png" onclick="showAppDetails(2)">
                 <label onclick="showAppDetails(2)">Square Match<label>
             </div>
-        </div>`,
-        
-        [
-        `<div class="app-info">
-            <strong style="color: #555">Mock Nexus</strong>
-            <p>
-                This clone of the UCSB newspaper site employs the Next.js framework to achieve server-side rendering as a React application. The app comprises routes "/categories," "/articles," "/authors" and "/about," with the "/categories" route extending into a "/subcategories" subroute. Pages in the "/categories" and "/authors" routes (as well as the "/subcategories" subroute) also include a "/page" subroute. The "/categories," "/articles" and "/authors" routes and all "/page" and "/subcategories" subroutes extend dynamically, with "/articles" and "/authors" including an [id] parameter and the others being self-explanatory. The use of Next.js' 'getStaticProps' and 'getStaticPaths' functions enabled application-wide pre-rendering of HTML, even among dynamic routes, ensuring miniscule load-times for all user-navigation.
-            </p>
-            <p>
-                The database operates through an AWS EC2 server and the site is deployed through Netlify. The application utilizes a small internal API (via the "/api" route) to manage user/article comments and 'following' statuses. The clone was designed to resemble the model (dailynexus.com) as closely as possible in every aspect with the exception of the implementation of a responsive design in the clone. The presentational data for the site was collected by employing the Scrapy Python framework to develop a spider and crawl through dailynexus.com extensively.
-            </p>
 
-            <div style="display:flex">
-                <button class="button" onclick="openURL('https://mocknexus.com')">Live Demo</button>
-                <button class="button" onclick="openURL('https://dailynexus.com')">Model Site</button>
-                <button class="button" onclick="openURL('https://github.com/nickBarak/Mock_Nexus-Generic')">Code (App)</button>
-                <button class="button" onclick="openURL('https://github.com/nickBarak/Nexus_Data_Crawler')">Code (Spider)</button>
-            </div>
-        </div>`,
+            <div class="app-info-container">
+                <div class="app-info">
+                    <strong style="color: #555">Mock Nexus</strong>
+                    <p>
+                        This clone of the UCSB newspaper site employs the Next.js framework to achieve server-side rendering as a React application. The app comprises routes "/categories," "/articles," "/authors" and "/about," with the "/categories" route extending into a "/subcategories" subroute. Pages in the "/categories" and "/authors" routes (as well as the "/subcategories" subroute) also include a "/page" subroute. The "/categories," "/articles" and "/authors" routes and all "/page" and "/subcategories" subroutes extend dynamically, with "/articles" and "/authors" including an [id] parameter and the others being self-explanatory. The use of Next.js' 'getStaticProps' and 'getStaticPaths' functions enabled application-wide pre-rendering of HTML, even among dynamic routes, ensuring miniscule load-times for all user-navigation.
+                    </p>
+                    <p>
+                        The database operates through an AWS EC2 server and the site is deployed through Netlify. The application utilizes a small internal API (via the "/api" route) to manage user/article comments and 'following' statuses. The clone was designed to resemble the model (dailynexus.com) as closely as possible in every aspect with the exception of the implementation of a responsive design in the clone. The presentational data for the site was collected by employing the Scrapy Python framework to develop a spider and crawl through dailynexus.com extensively.
+                    </p>
 
-        `<div class="app-info">
-            <strong>Choosie</strong>
+                    <div style="display:flex">
+                        <button class="button" onclick="openURL('https://mocknexus.com')">Live Demo</button>
+                        <button class="button" onclick="openURL('https://dailynexus.com')">Model Site</button>
+                        <button class="button" onclick="openURL('https://github.com/nickBarak/Mock_Nexus-Generic')">Code (App)</button>
+                        <button class="button" onclick="openURL('https://github.com/nickBarak/Nexus_Data_Crawler')">Code (Spider)</button>
+                    </div>
+                </div>
 
-            <p>
-                This application offers a truly 'app-like' experience and was designed with the concept of a mobile app in mind. Characteristic of this ambition are its smooth transitions, visually soft components and simplistic interface. It is a client-side rendered single-page application built with the React and React-DOM libraries and makes use of the React-Router-DOM library to incorporate a client-side routing mechanism. Its core routes include "/query", "/popular", "/my-list", "/search" and "/movies", none of which extend further, aside from the "/movies" route extending dynamically to accept an [id] parameter. Additional routes include "/help", "/register" and "/profile" (the last of which extends to accept a [username] parameter). The navigation system is designed such that a user can easily transition to almost any part of the application from every part of the application - excluding the additional routes, which have access to the index page alone.
-            </p>
-            
-            <p>
-                Talk about: Redux...
-                            AWS EC2 Database Server
-                            Netlify Client Deployment
-                            Heroku Server/API Deployment
-                            IMDB Web Crawler
-                            Passport.js Authentication
-            </p>
+                <div class="app-info">
+                    <strong>Choosie</strong>
 
-            <div style="display:flex">
-                <button class="button" onclick="openURL('https://choosie.us')">Live Demo</button>
-                <button class="button" onclick="openURL('https://github.com/nickBarak/Choosie-React')">Code (Client)</button>
-                <button class="button" onclick="openURL('https://github.com/nickBarak/Choosie-Server')">Code (Server)</button>
-                <button class="button" onclick="openURL('https://github.com/nickBarak/Movie_Data_Crawler')">Code (Spider)</button>
+                    <p>
+                        This application offers a truly 'app-like' experience and was designed with the concept of a mobile app in mind. Characteristic of this ambition are its smooth transitions, visually soft components and simplistic interface. It is a client-side rendered single-page application built with the React and React-DOM libraries and makes use of the React-Router-DOM library to incorporate a client-side routing mechanism. Its core routes include "/query", "/popular", "/my-list", "/search" and "/movies", none of which extend further, aside from the "/movies" route extending dynamically to accept an [id] parameter. Additional routes include "/help", "/register" and "/profile" (the last of which extends to accept a [username] parameter). The navigation system is designed such that a user can easily transition to almost any part of the application from every part of the application - excluding the additional routes, which have access to the index page alone.
+                    </p>
+                    
+                    <p>
+                        Talk about: Redux...
+                                    AWS EC2 Database Server
+                                    Netlify Client Deployment
+                                    Heroku Server/API Deployment
+                                    IMDB Web Crawler
+                                    Passport.js Authentication
+                    </p>
+
+                    <div style="display:flex">
+                        <button class="button" onclick="openURL('https://choosie.us')">Live Demo</button>
+                        <button class="button" onclick="openURL('https://github.com/nickBarak/Choosie-React')">Code (Client)</button>
+                        <button class="button" onclick="openURL('https://github.com/nickBarak/Choosie-Server')">Code (Server)</button>
+                        <button class="button" onclick="openURL('https://github.com/nickBarak/Movie_Data_Crawler')">Code (Spider)</button>
+                    </div>
+                </div>
+                
+                <div class="app-info">
+                
+                    <strong>Square Match</strong>
+
+                    <p>
+                        This application offers a truly 'app-like' experience and was designed with the concept of a mobile app in mind. Characteristic of this ambition are its smooth transitions, visually soft components and simplistic interface. It is a client-side rendered single-page application built with the React and React-DOM libraries and makes use of the React-Router-DOM library to incorporate a client-side routing mechanism. Its core routes include "/query", "/popular", "/my-list", "/search" and "/movies", none of which extend further, aside from the "/movies" route extending dynamically to accept an [id] parameter. Additional routes include "/help", "/register" and "/profile" (the last of which extends to accept a [username] parameter). The navigation system is designed such that a user can easily transition to almost any part of the application from every part of the application - excluding the additional routes, which have access to the index page alone.
+                    </p>
+                    
+                    <p>
+                        Talk about: Redux...
+                                    AWS EC2 Database Server
+                                    Netlify Client Deployment
+                                    Heroku Server/API Deployment
+                                    IMDB Web Crawler
+                                    Passport.js Authentication
+                    </p>
+
+                    <div style="display:flex">
+                        <button class="button" onclick="openURL('https://squarematch.xyz')">Live Demo</button>
+                        <button class="button" onclick="openURL('https://github.com/nickBarak/Square_Match')">Code</button>
+                    </div>
+                </div>
             </div>
         </div>`
-    ]],
-    Skills: [`<div class="skills-container" style="display: flex; justify-content: space-around; align-items: center; margin-top: 5rem;max-width: 100rem;">
+    ],
+    Skills: [`<div class="skills-container" style="display: flex; justify-content: space-around; align-items: center; margin-top: 7rem;max-width: 100rem;">
         <table class="skills-list">
         <tbody>
             <tr>
