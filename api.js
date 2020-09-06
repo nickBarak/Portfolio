@@ -2,7 +2,7 @@ const overviews = {
     Home: 
         `I recently graduated from the University of California, Santa Barbara with a degree in Economics & Accounting. I am now pursuing a professional position as a software developer. I have self-studied coding rigorously throughout the later portion of my time in college and am prepared for a position in web development - though I am open to and interested in exploring other facets of the industry if needed.`,
     Apps:
-        `In order to demonstrate the breadth of my abilities, I am showcasing two projects employing alternative rendering paradigms. The first is a server-side rendered multi-page application and a clone of the website for the student-run newspaper at my university. The second is a client-side rendered single-page application and is an information, recommendation and management service for movies.`,
+        `In order to demonstrate the breadth of my abilities, I am showcasing two projects employing alternative rendering paradigms. The first is a server-side rendered multi-page application and a clone of the website for the student-run newspaper at my university. The second is a client-side rendered single-page application and is an information, recommendation and management service for movies. Additionally, I have included a simple color-matching game.`,
     Skills:
         `I pride myself on my ability to bring a full project to completion from start to finish. As such, I have developed skills in both client- and server-side environments. These include a strong familiarity with the fundamental web technologies and industry tooling as well as knowledge and experience with things like routing, API development and database management. Much of my current workflow revolves around the React library.`,
     Appendix: 'Appendix Page'
@@ -12,20 +12,20 @@ const pageContent = {
     Home: [''],
     Apps: [
         `<div class="app-container">
-            <div class="app" data-key="0" style="transition: transform 350ms ease-in, max-height 500ms ease-in-out">
-                <img src="/img/apps/mock_nexus.png" onclick="showAppDetails(0)">
-                <label onclick="showAppDetails(0)">Mock Nexus</label>
+            <div class="app" data-key="0" style="transition: transform 350ms ease-in-out, max-height 500ms ease-in-out">
+                <img src="/img/apps/mock_nexus.png" onmouseout="this.style.borderColor = 'black'">
+                <label data-app-name="Mock Nexus">Mock Nexus</label>
             </div>
-            <div class="app" data-key="1" style="transition: transform 350ms ease-in, max-height 500ms ease-in-out">
-                <img src="/img/apps/choosie.png" onclick="showAppDetails(1)">
-                <label onclick="showAppDetails(1)">Choosie<label>
+            <div class="app" data-key="1" style="transition: transform 350ms ease-in-out, max-height 500ms ease-in-out">
+                <img src="/img/apps/choosie.png" onmouseout="this.style.borderColor = 'black'">
+                <label data-app-name="Choosie">Choosie<label>
             </div>
-            <div class="app" data-key="2" style="transition: transform 350ms ease-in, max-height 500ms ease-in-out">
-                <img src="/img/apps/square_match.png" onclick="showAppDetails(2)">
-                <label onclick="showAppDetails(2)">Square Match<label>
+            <div class="app" data-key="2" style="transition: transform 350ms ease-in-out, max-height 500ms ease-in-out">
+                <img src="/img/apps/square_match.png" onmouseout="this.style.borderColor = 'black'">
+                <label data-app-name="Square Match">Square Match<label>
             </div>
 
-            <div class="app-info-container">
+            <div class="app-info-container" style="transition: transform 350ms ease-in">
                 <div class="app-info">
                     <strong style="color: #555">Mock Nexus</strong>
                     <p>

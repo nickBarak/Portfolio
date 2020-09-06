@@ -50,7 +50,7 @@
                 <div class="swiper-button-prev swiper-button-white swiper-augment"></div>
                 <div class="swiper-button-next swiper-button-white swiper-augment"></div>
 
-                <div class="swiper-help swiper-augment">Spin the block to navigate</div>
+                <div class="swiper-help swiper-augment"><span>Spin the block to navigate</span></div>
             </section>
         </div>
 
@@ -85,29 +85,34 @@
         blockSwiper.on('slideChange', e => {
             let title;
             switch (blockSwiper.realIndex) {
-            default: console.log(blockSwiper.realIndex); return;
-            case 0:
-                title = 'Home';
-                break;
-            case 1:
-                title = 'Apps';
-                break;
-            case 2:
-                title = 'Skills';
-                break;
-            case 3:
-                title = 'Appendix';
+                default: console.log(blockSwiper.realIndex); return;
+                case 0:
+                    title = 'Home';
+                    break;
+                case 1:
+                    title = 'Apps';
+                    break;
+                case 2:
+                    title = 'Skills';
+                    break;
+                case 3:
+                    title = 'Appendix';
             }
             overviewTitle.innerHTML = title;
             overviewContent.innerHTML = overviews[title];
             pageEl.innerHTML = `${pageContent[title][0]}`;
             if (title === 'Home') {
-            overviewButton.innerHTML = 'My GitHub';
-            overviewButton.addEventListener('click', loadGitHub);
+                overviewButton.innerHTML = 'My GitHub';
+                overviewButton.addEventListener('click', loadGitHub);
             } else {
-            overviewButton.innerHTML = `Click to view ${title.toLowerCase()}`;
-            overviewButton.removeEventListener('click', loadGitHub);
-            overviewButton.addEventListener('click', minimizeSwiper);
+                if (title === 'Apps')
+                    [...document.getElementsByClassName('app')].forEach(({ children }) => {
+                        [...children].forEach(child => child.addEventListener('click', showAppDetails) );
+                        children[0].addEventListener('mouseover', turnBorderBlue);   
+                    });
+                overviewButton.innerHTML = `Click to view ${title.toLowerCase()}`;
+                overviewButton.removeEventListener('click', loadGitHub);
+                overviewButton.addEventListener('click', minimizeSwiper);
             }
         });
     </script>

@@ -16,6 +16,7 @@ html {
 
 body {
   background-image: radial-gradient(skyblue 40%, powderblue 70%, seashell);
+  overflow-x: hidden;
 }
 
 .container {
@@ -229,6 +230,13 @@ p {
   text-align: center;
   margin-top: 6.5rem;
   font-size: 1.3rem;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header {
@@ -340,6 +348,7 @@ tr:nth-child(1) {
 }
 
 .app-container {
+  margin-top: 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,14 +392,15 @@ tr:nth-child(1) {
   max-height: 100%;
   border: 6px solid black;
   border-radius: 15px;
-  -webkit-transition: border 300ms ease-out, border-width 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out;
-  transition: border 300ms ease-out, border-width 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out;
+  -webkit-transition: border 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out, -webkit-transform 150ms ease-out;
+  transition: border 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out, -webkit-transform 150ms ease-out;
+  transition: transform 150ms ease-out, border 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out;
+  transition: transform 150ms ease-out, border 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out, -webkit-transform 150ms ease-out;
 }
 
 .app img:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
-  border-color: #6677ff;
 }
 
 .app label {

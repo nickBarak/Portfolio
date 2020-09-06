@@ -19,6 +19,7 @@ html {
 body {
     // background-image: radial-gradient(#443844 40%, #554855 70%, #666666);
     background-image: radial-gradient(skyblue 40%, powderblue 70%, seashell);
+    overflow-x: hidden;
     // background-image: radial-gradient(royalblue 40%, rgb(110,110,240) 70%, rgb(135,125,250));
 }
 
@@ -222,6 +223,9 @@ transform:translateX(50px);
     text-align: center;
     margin-top: 6.5rem;
     font-size: 1.3rem;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
 }
 
 .header {
@@ -342,6 +346,7 @@ tr:nth-child(1) {
 }
 
 .app-container {
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -367,12 +372,12 @@ tr:nth-child(1) {
     max-height: 100%;
     border: 6px solid black;
     border-radius: 15px;
-    transition: border 300ms ease-out, border-width 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out;
+    transition: transform 150ms ease-out, border 300ms ease-out, border-color 300ms ease-out, height 500ms ease-in-out;
 }
 
 .app img:hover {
     transform: scale(1.04);
-    border-color: #6677ff;
+    // border-color: #6677ff;
 }
 
 .app:nth-child(1) img {
