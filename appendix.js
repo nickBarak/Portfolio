@@ -79,7 +79,7 @@ const Appendix_Items = {
             }
         },
                     
-        "Static Page Count": ["7,930"],
+        "Static Page Count": ["11,430"],
 
         Dependencies: [
             "express",

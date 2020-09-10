@@ -54,7 +54,7 @@ const pageContent = {
                     </p>`}
 
                     <div class="button-container" style="display:flex; justify-content: center;">
-                        <button class="button" onclick="openURL('https://mocknexus.com')">Live Demo</button>
+                        <button class="button" onclick="openURL('https://nickbarak.me/mock-nexus')">Live Demo</button>
                         <button class="button" onclick="openURL('https://dailynexus.com')">Model Site</button>
                         <button class="button" onclick="openURL('https://github.com/nickBarak/Mock_Nexus-Generic')">Code (App)</button>
                         <button class="button" onclick="openURL('https://github.com/nickBarak/Nexus_Data_Crawler')">Code (Spider)</button>
@@ -65,19 +65,37 @@ const pageContent = {
                     <strong>Choosie</strong>
 
                     <p>
-                        This application offers a truly 'app-like' experience and was designed with the concept of a mobile app in mind. Characteristic of this ambition are its smooth transitions, visually soft components and simplistic interface. The app opens to a search bar and three buttons, labeled 'My List,' 'Start' and 'Popular.' Entering a search will open a search page showing the value entered, a star-rating component, another search bar and a list of 10 or less movies matching the search. The word 'Next' will appear both above and below this list if the search yields more than 10 results, and a click on a 'Next' button will display the next set and reveal an option to view the previous one.
+                        This application offers a truly 'app-like' experience and was designed with the concept of a mobile app in mind. Characteristic of this ambition are its smooth transitions, visually soft components and simplistic interface. The app opens to a search bar and three buttons labeled 'My List,' 'Start' and 'Popular.' Entering a search will open a search page showing the value entered, a star-rating component, another search bar and a list of 10 or less movies matching the search. The word 'Next' will appear both above and below this list if the search yields more than 10 results, and a click on a 'Next' button will display the next set and reveal an option to view the previous one. A navigation bar is also visible with options to return home or visit the 'My List' and 'Popular' pages.
                     </p>
                     <p>
-                        Clicking on the image or text of one of the results on the search page will open a movie page where its information can be observed. A 'Back' option will appear in the navigation bar which will return the user to the search page with the search value and result set restored. Below the title of the movie on the movie page sits a button reading either 'Sign in to save this movie' or 'Save movie' depending on the status of the user. If not signed in, clicking this button will redirect the user to the registration page. Otherwise, the movie will be added to the user's collection of saved movies which can be observed from the 'My List' page. The button will then read 'Unsave movie,' and clicking it will remove the movie from the user's collection.
+                        Clicking on the image or text of one of the results on the search page will open a movie page where its information can be observed. A 'Back' option will appear in the navigation bar which will return the user to the search page with the search value and result set restored. Below the title of the movie on the movie page sits a button reading either 'Sign in to save this movie' or 'Save to My List' depending on the status of the user. If not signed in, clicking this button will redirect the user to the registration page. Otherwise, the movie will be added to the user's collection of saved movies which can be observed from the 'My List' page. The button will then read 'Unsave movie,' and clicking it will remove the movie from the user's collection.
                     </p>
                     <p>
+                        At the top left of the home page is a button to log in. Clicking this will open input boxes for entering credentials as well as an option to sign up. Clicking the 'Sign up' button will take the user to a register page. A user can sign in from this page as well, or and be prompted to enter further information afterwords. When signed in, the 'Log in' button on the home page is replaced with a greeting as well as buttons to log out or view the user's profile. The profile page includes a summary of the user's settings as well options to change them. At the bottom left of the home page are the words 'What is Choosie?.' This is a link to the help page where information about the application is provided.
+                    </p>
+                    <p>
+                        Selecting the 'My List' option from the home screen or navigation bar will, if signed in, reveal all of the user's currently saved movies. Hovering over the movie's image will - if the user's settings allow - display a brief description, and clicking the 'Unsave' button beneath it will remove it from the user's currently saved movies as well as any bins which contain it. Unsaved movies can still be viewed by clicking 'Save History' on the 'My List' page, however, unless the user opts to clear his or her history in the profile page.
+                    </p>
+                        your bins
+                        manage bins
+                        filter
+                    </p>
+                    <p>
+                        popular
+                    </p>
+                    <p>
+                        query
+                    </p> 
+                
 
-                        
+
+
+
                         The navigation system is designed such that a user can easily transition to almost any part of the application from every part of the application - excluding the additional routes, which have access to the home page alone.
                         
                         
                         
-                        It is a client-side rendered single-page application built with the React and React-DOM libraries and makes use of the React-Router-DOM library to incorporate a client-side routing mechanism. Its core routes include "/query", "/popular", "/my-list", "/search" and "/movies", none of which extend further, aside from the "/movies" route extending dynamically to accept an [id] parameter. Additional routes include "/help", "/register" and "/profile" (the last of which extends to accept a [username] parameter). The navigation system is designed such that a user can easily transition to almost any part of the application from every part of the application - excluding the additional routes, which have access to the index page alone.
+                       ${1?'':`It is a client-side rendered single-page application built with the React and React-DOM libraries and makes use of the React-Router-DOM library to incorporate a client-side routing mechanism. Its core routes include "/query", "/popular", "/my-list", "/search" and "/movies", none of which extend further, aside from the "/movies" route extending dynamically to accept an [id] parameter. Additional routes include "/help", "/register" and "/profile" (the last of which extends to accept a [username] parameter). The navigation system is designed such that a user can easily transition to almost any part of the application from every part of the application - excluding the additional routes, which have access to the index page alone.`}
                     </p>
                     
                     <p>
