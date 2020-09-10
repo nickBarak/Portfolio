@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix</title>
+</head>
+<body>
+    <h1>Appendix</h1>
+    <ul>
+        <button>Mock Nexus</button>
+        <button>Choosie</button>
+        <button>Square Match</button>
+    </ul>
+    <h2>Select an option to view details</h2>
+    <ul class="appendix-item"></ul>
+
+    <script src="./appendix.js"></script>
+    <script>
+        const makeElt = (type) => document.createElement(type);
+        let Fragment = new DocumentFragment();
+
+        [...document.getElementsByTagName('button')].forEach(btn =>
+            btn.addEventListener('click', _=> render(btn.innerText) )
+        );
+        
+        // render('Mock Nexus');
+
+        function formatSpanContents(span, val) {
+            if (typeof val === 'object') {
+                let subUl = makeElt('ul');
+                if (val instanceof Array) {
+                    val.forEach(subVal => {
+                        let subLi = makeElt('li');
+                        subLi.classList.add('appendix-item-data');
+                        subLi.innerHTML = subVal;
+                        
+                        subUl.appendChild(subLi);
+                    });
+                } else {
+                    Object.entries(val).forEach(([subKey, subVal]) => {
+                        let subLi = makeElt('li');
+                        subLi.classList.add('appendix-item-data');
+                        let subLabel = makeElt('label');
+                        let subSpan = makeElt('span');
+                        subLabel.innerHTML = subKey.replace(/_/g, ' ') + ': ';
+                        formatSpanContents(subSpan, subVal);
+
+                        subLi.appendChild(subLabel);
+                        subLi.appendChild(subSpan);
+                        subUl.appendChild(subLi);
+                    });
+                }
+                span.appendChild(subUl);
+            } else span.innerHTML = val;
+        }
+
+        function render(showing) {
+            document.getElementsByTagName('h2')[0].innerHTML = showing;
+            let ul = makeElt('ul');
+            ul.classList.add('appendix-item');
+
+            Object.entries(Appendix_Items[showing]).forEach(([key, val]) => {
+                let li = makeElt('li');
+                li.classList.add('appendix-item-data');
+                let label = makeElt('label');
+                let span = makeElt('span');
+                label.innerHTML = key.replace(/_/g, ' ') + ': ';
+                formatSpanContents(span, val);
+
+                li.appendChild(label);
+                li.appendChild(span);
+
+                ul.appendChild(li);
+            });
+
+            Fragment.appendChild(ul);
+            document.getElementsByClassName('appendix-item')[0].replaceWith(Fragment);
+        }
+    </script>
+</body>
+</html>

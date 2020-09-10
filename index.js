@@ -1,6 +1,5 @@
 function minimizeSwiper() {
     window.scrollTo(0, 0);
-    window.addEventListener('mousemove', scrollToCursor);
     blockSwiper.el.style.transform = window.innerWidth > 1200
         ? 'scale(.175)'
         : window.innerWidth > 1000
@@ -33,9 +32,11 @@ function minimizeSwiper() {
             : '2.25rem';
 
     overviewEl.style.transform = 'translateX(-135%)';
-
+    
     pageEl.style.visibility = 'visible';
-    pageEl.style.top = window.innerWidth > 500 ? '7.5rem' : '3.5rem';
+    pageEl.style.top = window.innerWidth > 500 ? '8rem' : '5rem';
+    
+    setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
 
     // if (document.getElementsByClassName('app-container')[0]) document.style.scrollBehavior = 'auto';
         // && window.addEventListener('wheel', updateAppImagesOnWheel);
@@ -75,7 +76,7 @@ function maximizeSwiper() {
 }
 
 function scrollToCursor(e) {
-    const mousePos = [e.screenX, e.screenY - 350];
+    const mousePos = [e.screenX, e.screenY - 180];
     window.scrollTo(...mousePos);
     // updateAppImagesOnScroll(...mousePos);
 }
@@ -114,10 +115,29 @@ function showAppDetails({ target: { parentElement: { dataset: { key: app } } } }
             child.style.transform = `translateX(${i ? '' : '-'}100vw)`;
         });
     
+    let mobile = window.innerWidth < 550;
     if (app) {
-        document.getElementsByClassName('app-container')[0].style.transform = `translateY(${app === 1 ? '-4rem' : '-8rem'}`;
-        if (app === 1) document.getElementsByClassName('app-info-container')[0].style.transform = `translateY(-5rem)`;
-    } else document.getElementsByClassName('app-info-container')[0].style.transform = `translateY(-10rem)`;
+        document.getElementsByClassName('app-container')[0].style.transform =
+            `translateY(${
+            app === 1
+                ? mobile
+                    ? '-2rem'
+                    : '-4rem'
+                : mobile
+                    ? '-4rem'
+                    : '-8rem'
+            })`;
+        document.getElementsByClassName('app-info-container')[0].style.transform = `translateY(${
+            app === 1
+                ? mobile
+                    ? '-4rem'
+                    : '-5rem'
+                : mobile
+                    ? '-1.5rem'
+                    : 0
+        })`;
+    } else
+        document.getElementsByClassName('app-info-container')[0].style.transform = `translateY(${mobile ? '-5.25rem' : '-10rem'})`;
 
     setTimeout(_=> {
         [...document.getElementsByClassName('app')].forEach((appDiv, i) => {
@@ -152,7 +172,7 @@ function hideAppDetails() {
     [...document.getElementsByClassName('app')].forEach(appDiv => {
         appDiv.children[0].style.border = '6px solid black';
         appDiv.style.maxHeight = appDiv.children[1].style.height = '100%';
-        appDiv.children[0].style.height = '30rem';
+        appDiv.children[0].style.height = window.innerWidth > 750 ? '30rem' : window.innerWidth > 550 ? '23.5rem' : '16rem';
     });
 
     [...document.getElementsByClassName('app-info-container')[0].children].slice(0, 3).forEach(child => {

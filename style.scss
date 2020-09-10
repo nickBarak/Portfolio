@@ -57,7 +57,7 @@ body {
     border-radius: 14px;
     padding: 5px 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: gray;
     cursor: pointer;
 }
@@ -89,7 +89,7 @@ p {
     position: absolute;
     top: 150%;
     visibility: hidden;
-    transition: top 325ms ease-in-out;
+    transition: top 500ms ease-in-out;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -380,13 +380,13 @@ tr:nth-child(1) {
     // border-color: #6677ff;
 }
 
-.app:nth-child(1) img {
-    // transform: rotate3d(0, 1, 0, 30deg);
-}
+// .app:nth-child(1) img {
+//     transform: rotate3d(0, 1, 0, 30deg);
+// }
 
-.app:nth-child(2) img {
-    // transform: rotate3d(0, 1, 0, -30deg);
-}
+// .app:nth-child(2) img {
+//     transform: rotate3d(0, 1, 0, -30deg);
+// }
 
 .app label {
     transition: opacity 200ms ease-in;
@@ -426,6 +426,12 @@ tr:nth-child(1) {
     .block-swiper {
         height: 16rem;
         width: 24rem;
+
+        &:hover {
+            .swiper-button-white {
+                transform: translateY(1.8rem);
+            }
+        }
     }
 
     .swiper-slide {
@@ -452,6 +458,12 @@ tr:nth-child(1) {
     .block-swiper {
         height: 12.5rem;
         width: 18rem;
+
+        &:hover {
+            .swiper-button-white {
+                transform: translateY(2.75rem);
+            }
+        }
     }
 
     .swiper-slide {
@@ -480,6 +492,10 @@ tr:nth-child(1) {
         td {
             padding: .75rem;
         }
+    }
+
+    .swiper-help {
+        transform: translateY(-1.5rem);
     }
 }
 
@@ -538,6 +554,27 @@ tr:nth-child(1) {
         }
     }
 
+    .app {
+        margin: 1.5rem;
+    }
+
+    .app img {
+        width: 27.5rem;
+        height: 23.5rem;
+    }
+
+    .app-info-container {
+        margin-top: 2.5rem;
+        max-width: 80vw;
+    }
+
+    .app-info {
+        max-width: 100%;
+    }
+
+    .button {
+        font-size: 1.1rem;
+    }
 }
 @media screen and (max-width: 650px) {
     .container {
@@ -591,10 +628,12 @@ tr:nth-child(1) {
         .swiper-pagination {
             transform: translateY(1rem);
         }
-        .swiper-button-next,
-        .swiper-button-prev {
-            translate: 0 -3.5rem;
-            height: 1.5rem;
+
+        &:hover {
+            .swiper-button-white {
+                transform: translateY(5.5rem);
+                height: 2rem;
+            }
         }
     }
 
@@ -611,5 +650,68 @@ tr:nth-child(1) {
             hyphens: auto;
             word-break: break-word;
         }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .app {
+        margin: .85rem;
+    }
+
+    .app img {
+        height: 16rem;
+        width: 17.5rem;
+    }
+
+    .app-info {
+        font-size: 1.15rem;
+        line-height: 1.5rem;
+        text-align: left;
+
+        .button-container {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button {
+            // font-size: 1rem;
+            margin: .55rem;
+            width: 50%;
+            // padding: .2rem;
+        }
+    }
+
+    .block-swiper .swiper-help {
+        transform: translateY(-4rem);
+    }
+
+    
+}
+
+
+
+@media screen and (max-height: 1000px) {
+    #overview {
+        font-size: 1.45rem;
+        line-height: 2.1rem;
+        transform: translateY(3.5rem);
+    }
+
+    .block-swiper {
+        transform: translateY(3.5rem);
+    }
+}
+
+@media screen and (max-height: 700px) {
+    #overview {
+        font-size: 1.25rem;
+        line-height: 1.85rem;
+        transform: translateY(5rem);
+    }
+
+    .block-swiper {
+        transform: translateY(2.5rem);
     }
 }

@@ -51,7 +51,7 @@ body {
   border-radius: 14px;
   padding: 5px 10px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: gray;
   cursor: pointer;
 }
@@ -83,8 +83,8 @@ p {
   position: absolute;
   top: 150%;
   visibility: hidden;
-  -webkit-transition: top 325ms ease-in-out;
-  transition: top 325ms ease-in-out;
+  -webkit-transition: top 500ms ease-in-out;
+  transition: top 500ms ease-in-out;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -443,6 +443,10 @@ tr:nth-child(1) {
     height: 16rem;
     width: 24rem;
   }
+  .block-swiper:hover .swiper-button-white {
+    -webkit-transform: translateY(1.8rem);
+            transform: translateY(1.8rem);
+  }
   .swiper-slide {
     margin-top: 2rem;
   }
@@ -463,6 +467,10 @@ tr:nth-child(1) {
   .block-swiper {
     height: 12.5rem;
     width: 18rem;
+  }
+  .block-swiper:hover .swiper-button-white {
+    -webkit-transform: translateY(2.75rem);
+            transform: translateY(2.75rem);
   }
   .swiper-slide {
     margin-top: 3rem;
@@ -485,6 +493,10 @@ tr:nth-child(1) {
   }
   .skills-list td {
     padding: .75rem;
+  }
+  .swiper-help {
+    -webkit-transform: translateY(-1.5rem);
+            transform: translateY(-1.5rem);
   }
 }
 
@@ -533,6 +545,23 @@ tr:nth-child(1) {
   }
   .skills-container .skills-list td {
     padding: 1rem;
+  }
+  .app {
+    margin: 1.5rem;
+  }
+  .app img {
+    width: 27.5rem;
+    height: 23.5rem;
+  }
+  .app-info-container {
+    margin-top: 2.5rem;
+    max-width: 80vw;
+  }
+  .app-info {
+    max-width: 100%;
+  }
+  .button {
+    font-size: 1.1rem;
   }
 }
 
@@ -593,10 +622,10 @@ tr:nth-child(1) {
     -webkit-transform: translateY(1rem);
             transform: translateY(1rem);
   }
-  .block-swiper .swiper-button-next,
-  .block-swiper .swiper-button-prev {
-    translate: 0 -3.5rem;
-    height: 1.5rem;
+  .block-swiper:hover .swiper-button-white {
+    -webkit-transform: translateY(5.5rem);
+            transform: translateY(5.5rem);
+    height: 2rem;
   }
   #overview {
     font-size: 1.3rem;
@@ -611,6 +640,66 @@ tr:nth-child(1) {
         -ms-hyphens: auto;
             hyphens: auto;
     word-break: break-word;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .app {
+    margin: .85rem;
+  }
+  .app img {
+    height: 16rem;
+    width: 17.5rem;
+  }
+  .app-info {
+    font-size: 1.15rem;
+    line-height: 1.5rem;
+    text-align: left;
+  }
+  .app-info .button-container {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .app-info .button {
+    margin: .55rem;
+    width: 50%;
+  }
+  .block-swiper .swiper-help {
+    -webkit-transform: translateY(-4rem);
+            transform: translateY(-4rem);
+  }
+}
+
+@media screen and (max-height: 1000px) {
+  #overview {
+    font-size: 1.45rem;
+    line-height: 2.1rem;
+    -webkit-transform: translateY(3.5rem);
+            transform: translateY(3.5rem);
+  }
+  .block-swiper {
+    -webkit-transform: translateY(3.5rem);
+            transform: translateY(3.5rem);
+  }
+}
+
+@media screen and (max-height: 700px) {
+  #overview {
+    font-size: 1.25rem;
+    line-height: 1.85rem;
+    -webkit-transform: translateY(5rem);
+            transform: translateY(5rem);
+  }
+  .block-swiper {
+    -webkit-transform: translateY(2.5rem);
+            transform: translateY(2.5rem);
   }
 }
 /*# sourceMappingURL=style.css.map */
