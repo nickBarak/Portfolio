@@ -7,13 +7,15 @@
 </head>
 <body>
     <h1>Appendix</h1>
-    <ul>
-        <button>Mock Nexus</button>
-        <button>Choosie</button>
-        <button>Square Match</button>
+    <ul style="padding-left: 0">
+        <li><button>True Press</button></li>
+        <li><button>Choosie</button></li>
+        <li><button>Square Match</button></li>
     </ul>
     <h2>Select an option to view details</h2>
     <ul class="appendix-item"></ul>
+
+    <style> body > ul:nth-child(2) li { display: inline-block } </style>
 
     <script src="./appendix.js"></script>
     <script>
@@ -24,7 +26,7 @@
             btn.addEventListener('click', _=> render(btn.innerText) )
         );
         
-        // render('Mock Nexus');
+        // render('True Press');
 
         function formatSpanContents(span, val) {
             if (typeof val === 'object') {
@@ -43,7 +45,7 @@
                         subLi.classList.add('appendix-item-data');
                         let subLabel = makeElt('label');
                         let subSpan = makeElt('span');
-                        subLabel.innerHTML = subKey.replace(/_/g, ' ') + ': ';
+                        subLabel.innerHTML = subKey+': ';
                         formatSpanContents(subSpan, subVal);
 
                         subLi.appendChild(subLabel);
@@ -65,7 +67,7 @@
                 li.classList.add('appendix-item-data');
                 let label = makeElt('label');
                 let span = makeElt('span');
-                label.innerHTML = key.replace(/_/g, ' ') + ': ';
+                label.innerHTML = key + ': ';
                 formatSpanContents(span, val);
 
                 li.appendChild(label);

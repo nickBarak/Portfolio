@@ -63,7 +63,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="./main.js"></script>
     <script src="./api.js"></script>
     <script>
         const overviewEl = document.getElementById('overview'),
@@ -71,7 +71,7 @@
             [overviewTitle, overviewContent, overviewButton] = overviewEl.children,
             openURL = (url, newTab=true)=> window.open(url, newTab ? '_blank' : '#'),
             loadGitHub = _=> openURL('https://github.com/nickBarak'),
-            loadAppendix = _=> openURL('http://localhost:5500/appendix.html'),
+            loadAppendix = _=> openURL('http://nickbarak.me/appendix.html'),
             [swiperHelpEl] = document.getElementsByClassName('swiper-help'),
             [swiperPaginationEl] = document.getElementsByClassName('swiper-pagination'),
             [swiperArrowLeft, swiperArrowRight] = document.getElementsByClassName('swiper-button-white');

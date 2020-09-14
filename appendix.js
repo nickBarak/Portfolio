@@ -1,5 +1,5 @@
 const Appendix_Items = {
-    "Mock Nexus": {
+    "True Press": {
         Domain: {
             Name: "mocknexus.com",
             Provider: "Namecheap"
@@ -156,7 +156,7 @@ const Appendix_Items = {
             }
         },
 
-        Notes: ["..."]
+        Notes: ["All application data is dummy in production. However, it is based on real data scraped from dailynexus.com. A web-crawler was constructed with start URLs comprising all '/categories/[category]/[subcategory]' routes, and records of the extracted data were piped to the \"articles\" table of the database. A second spider was constructed to collect information for the \"authors\" table. During the build phase, all text is replaced with 'Lorem ipsum' dummy text and all images are replaced with images from the public picsum.photos API. The application bundle consists purely of pre-rendered, statically generated files using this dummy data. As a result, the files served to the client contain no trace of unauthorized content while maintaining a visual representation of a data-filled site."]
     
     },
 
@@ -304,7 +304,7 @@ const Appendix_Items = {
             "Hosting Service": ["Heroku"],
             Routes: {
                 "/": {
-                    "/home/:user":
+                    "/home/[user]":
                         { methods: ["POST"] }
                 },
 
@@ -352,7 +352,7 @@ const Appendix_Items = {
                         { methods: ["POST"] },
                     "/check":
                         { methods: ["GET"] },
-                    "/:user":
+                    "/[user]":
                         { methods: ["GET", "PATCH", "PUT"] },
                         "/bins":
                             { methods: ["POST", "PUT", "DELETE", "PATCH"] }
@@ -376,7 +376,7 @@ const Appendix_Items = {
             ]
         },
             
-        Notes: ["..."]
+        Notes: ["All of the data for the application is pulled from IMDb. A web-crawler was constructed with a start URL for each genre page on the site, collecting data on individual titles. The Scrapy.py framework was used for this with the setting \"OBEY_TXT\" set to true, meaning that the spider is in full compliance with the robots.txt file provided by IMDb. Movie descriptions - which are unique to IMDb - are explicitly credited to IMDb on movie pages, with a link to the source URL."]
 
     },
 
@@ -410,6 +410,6 @@ const Appendix_Items = {
 
         API: ["None"],
 
-        Notes: ["..."]
+        Notes: ["As a static, client-only site, the application is not able to store data in a secure database. A hash table is used in the local storage of the browser, with user emails as keys and user fastest times as values. The only form of authentication available is OAuth through trusted parties, and no sensitive information is accessed or stored. JWTs are used to refresh a client's authentication status."]
     }
 }
