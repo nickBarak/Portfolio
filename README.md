@@ -10,7 +10,7 @@ Repository: https://github.com/nickBarak/True_Press
 
 Choosie  
 Live URL: https://choosie.us  
-Repository: https://github.com/nickBarak/Choosie-React
+Repository: https://github.com/nickBarak/Choosie-Client
 
 Square Match  
 Live URL: https://squarematch.xyz  
