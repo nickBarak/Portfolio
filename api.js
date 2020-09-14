@@ -144,12 +144,12 @@ const pageContent = {
                 <td>MongoDB</td>
             </tr>
             <tr class="skill">
-                <td>Cache Storage</td>
-                <td>Redis</td>
+                <td>Session Management/Cache Storage</td>
+                <td>Express-Session, Redis</td>
             </tr>
             <tr class="skill">
                 <td>Authentication</td>
-                <td>Express-Session/<wbr>Cookies</td>
+                <td>Cookies, OAuth 2.0/<wbr>JWT</td>
             </tr>
         </tbody>
         </table>
