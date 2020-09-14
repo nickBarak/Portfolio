@@ -164,7 +164,7 @@ function showAppDetails({ target: { parentElement: { dataset: { key: app } } } }
 }
 
 function hideAppDetails() {
-    window.addEventListener('mousemove', scrollToCursor);
+    setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
     
     document.getElementsByClassName('app-container')[0].style.transform =
         document.getElementsByClassName('app-info-container')[0].style.transform = `translateY(0)`;
