@@ -5,7 +5,7 @@ const Appendix_Items = {
             Provider: "Namecheap"
         },
 
-        "Repository URL": ["github.com/nickBarak/Mock_Nexus-Generic"],
+        "Repository URL": ["github.com/nickBarak/True_Press"],
 
         "Rendering Methods": ["Server-Side", "Multi-Page", "Pre-Rendered"],
                 
