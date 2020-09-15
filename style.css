@@ -3,6 +3,20 @@
   transition: all .3s ease;
 }
 
+.chrome-adj-swiper {
+  position: absolute;
+  top: -10rem;
+}
+
+.chrome-adj-button {
+  top: 0;
+}
+
+.chrome-adj-help {
+  -webkit-transform: translateY(20rem);
+          transform: translateY(20rem);
+}
+
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -54,6 +68,7 @@ body {
   font-size: 1.3rem;
   color: gray;
   cursor: pointer;
+  border-color: #eee;
 }
 
 .button:hover,
@@ -628,6 +643,8 @@ tr:nth-child(1) {
     height: 2rem;
   }
   #overview {
+    -webkit-transform: translateY(-1.5rem);
+            transform: translateY(-1.5rem);
     font-size: 1.3rem;
     line-height: 1.75rem;
     padding: 0 1.75rem;

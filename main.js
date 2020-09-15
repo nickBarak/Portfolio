@@ -36,23 +36,23 @@ function minimizeSwiper() {
     pageEl.style.visibility = 'visible';
     pageEl.style.top = window.innerWidth > 500 ? '8rem' : '5rem';
     
-    setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
-
-    // if (document.getElementsByClassName('app-container')[0]) document.style.scrollBehavior = 'auto';
-        // && window.addEventListener('wheel', updateAppImagesOnWheel);
+    if (inChrome) {
+        blockSwiper.el.style.transform += ' translateY(-10rem)';
+        window.removeEventListener('resize', adjustSwiperInChrome);
+    } else setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
 }
 
 function maximizeSwiper() {
     window.removeEventListener('mousemove', scrollToCursor);
     blockSwiper.el.style.transform = 'scale(1)';
-    // blockSwiper.el.style.width = '100%';
     blockSwiper.el.style.cursor = 'grab';
     setTimeout(_=> {
-        blockSwiper.el.style.position = 'relative';       
+        blockSwiper.el.style.position = 'relative';
         setTimeout(_=> {
             blockSwiper.el.style.top = 0;
             blockSwiper.el.style.right = 0;
         }, 25);
+        if (inChrome) adjustSwiperInChrome();
     }, 125);
     blockSwiper.el.removeEventListener('click', maximizeSwiper);
     blockSwiper.attachEvents();
@@ -68,41 +68,16 @@ function maximizeSwiper() {
     setTimeout(_=> { pageEl.style.visibility = 'hidden' }, 300);
     
     if (document.getElementsByClassName('app-container')[0]) {
-        // document.style.scrollBehavior = 'smooth';
-        hideAppDetails();
-        // || window.removeEventListener('wheel', updateAppImagesOnWheel);
+        hideAppDetails(true);
     }
-    window.removeEventListener('mousemove', scrollToCursor);
+    if (inChrome)
+        window.addEventListener('resize', adjustSwiperInChrome);
 }
 
 function scrollToCursor(e) {
     const mousePos = [e.screenX, e.screenY - 180];
     window.scrollTo(...mousePos);
-    // updateAppImagesOnScroll(...mousePos);
 }
-
-// function updateAppImagesOnWheel(e) { console.log('o') || updateAppImagesOnScroll(e.clientX, e.clientY); }
-
-// function updateAppImagesOnScroll(x, y) {
-//     console.log(x, y);
-//     if (x && y) {
-//         let elements = document.elementsFromPoint(x, y);
-//         if (elements) {
-//             let [appDiv] = elements.filter(({ className }) => className === 'app');
-//             if (appDiv) {
-//                 console.log('hooray');
-//                 appDiv.children[0].style.borderColor = '#6677ff';
-//                 appDiv.children[0].style.transform = 'scale(1.04)';
-//             } else {
-//                 console.log('nooo!');
-//                 [...document.getElementsByClassName('app')].forEach(appDiv => {
-//                     appDiv.children[0].style.borderColor = 'black';
-//                     appDiv.children[0].style.transform = 'scale(1)';
-//                 });
-//             }
-//         }
-//     }
-// }
 
 function showAppDetails({ target: { parentElement: { dataset: { key: app } } } }) {
     app = Number(app);
@@ -163,8 +138,9 @@ function showAppDetails({ target: { parentElement: { dataset: { key: app } } } }
     }, 350);
 }
 
-function hideAppDetails() {
-    setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
+function hideAppDetails(reset=false) {
+    if (!inChrome && !reset)
+        setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
     
     document.getElementsByClassName('app-container')[0].style.transform =
         document.getElementsByClassName('app-info-container')[0].style.transform = `translateY(0)`;
@@ -207,6 +183,8 @@ function hideAppDetails() {
 function lockAppImage({ target: { style } }) { style.transform = 'scale(1)' }
 function turnBorderBlue(e) { e.target.style.borderColor = '#6677ff' }
 
+let inChrome = navigator.appVersion.indexOf("Chrome/") != -1;
+
 let blockOptions = {
     init: false,
     loop: true,
@@ -214,13 +192,6 @@ let blockOptions = {
     slidesPerView: 2,
     centeredSlides : true,
     effect: 'cube',
-    coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows : true,
-    },
     grabCursor: true,
     parallax: true,
     pagination: {
@@ -231,18 +202,55 @@ let blockOptions = {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    // breakpoints: {
-    //     1023: {
-    //     slidesPerView: 1,
-    //     spaceBetween: 0
-    //     }
-    // },
-    // Events
+    cubeEffect: {
+        shadow: true,
+        slideShadows: false,
+        shadowOffset: inChrome ? 200 : 20,
+        shadowScale: inChrome ? .75 : .94
+    },
     on: {
         imagesReady: function(){
-        this.el.classList.remove('loading');
+            this.el.classList.remove('loading');
         }
     }
 };
 let blockSwiper = new Swiper('.block-swiper', blockOptions);
 blockSwiper.init();
+
+// Fix Chrome issue
+if (inChrome) {
+    window.addEventListener('load', adjustSwiperInChrome);
+    window.addEventListener('resize', adjustSwiperInChrome);
+}
+function adjustSwiperInChrome() {
+    
+        document.getElementsByClassName('block-swiper')[0].style.transform = window.innerWidth > 650 ? 'translateY(-7.5em)' : 'translateY(0)';
+
+        document.getElementsByClassName('swiper-pagination')[0].style.bottom =
+            window.innerWidth > 1500
+                ? '-12.1rem'
+                : window.innerWidth > 1000
+                    ? '-10.4rem'
+                    : window.innerWidth > 650
+                        ? '-10rem'
+                        : 0;
+
+        document.getElementsByClassName('swiper-help')[0].style.transform = 
+            window.innerWidth > 1500
+                ? 'translateY(6.5rem)'
+                : window.innerWidth > 1200
+                    ? 'translateY(4.5rem)'
+                    : window.innerWidth > 1000
+                        ? 'translateY(6.5rem)'
+                        : window.innerWidth > 650
+                            ? 'translateY(6.15rem)'
+                            : 'translateY(-5.75rem)';
+
+        if (window.innerWidth < 650) {
+            document.getElementsByClassName('swiper-wrapper')[0].style.top = '-10rem';
+            [...document.getElementsByClassName('swiper-button-white')].forEach(btn => {
+                btn.style.top = '-5rem';
+            });
+        }
+            
+}

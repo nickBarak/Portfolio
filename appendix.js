@@ -410,6 +410,6 @@ const Appendix_Items = {
 
         API: ["None"],
 
-        Notes: ["As a static, client-only site, the application is not able to store data in a secure database. A hash table is used in the local storage of the browser, with user emails as keys and user fastest times as values. The only form of authentication available is OAuth through trusted parties, and no sensitive information is accessed or stored. JWTs are used to refresh a client's authentication status."]
+        Notes: ["As a static, client-only site, the application is not able to store data in a secure database. A hash table is used in the local storage of the browser, with user emails as keys and user fastest times as values. The only form of authentication available is OAuth through trusted parties, and no sensitive information is accessed or stored. As acquiring a refresh token is not easily done in a client-only environment, no refresh tokens are used. As a result, the client's authentication status will not be automatically refreshed and users will be required to sign in again if their client's access token expires."]
     }
 }
