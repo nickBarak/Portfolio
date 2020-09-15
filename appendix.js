@@ -1,7 +1,7 @@
 const Appendix_Items = {
     "True Press": {
         Domain: {
-            Name: "mocknexus.com",
+            Name: "truepress.com",
             Provider: "Namecheap"
         },
 
@@ -79,7 +79,7 @@ const Appendix_Items = {
             }
         },
                     
-        "Static Page Count": ["11,429"],
+        "Static Page Count": ["12,741"],
 
         Dependencies: [
             "express",
