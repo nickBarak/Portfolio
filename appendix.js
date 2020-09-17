@@ -165,7 +165,7 @@ const Appendix_Items = {
             Name: "choosie.us",
             Provider: "Namecheap"
         },
-        "Repository URL": ["github.com/nickBarak/Choosie-React"],
+        "Repository URL": ["github.com/nickBarak/Choosie-Client"],
 
         "Rendering Methods": ["Client-Side", "Single-page"],
                 
@@ -376,7 +376,7 @@ const Appendix_Items = {
             ]
         },
             
-        Notes: ["All of the data for the application is pulled from IMDb. A web-crawler was constructed with a start URL for each genre page on the site, collecting data on individual titles. The Scrapy.py framework was used for this with the setting \"OBEY_TXT\" set to true, meaning that the spider is in full compliance with the robots.txt file provided by IMDb. Movie descriptions - which are unique to IMDb - are explicitly credited to IMDb on movie pages, with a link to the source URL."]
+        Notes: ["All of the data for the application is pulled from IMDb. A web-crawler was constructed with a start URL for each genre page on the site, collecting data on individual titles. The Scrapy.py framework was used for this with the setting \"OBEY_TXT\" set to true, meaning that the spider is in full compliance with the robots.txt file provided by IMDb. Movie descriptions - which are unique to IMDb - are explicitly credited to IMDb on movie pages, with a link to the source URL. Cookies are used in this application but contain nothing but a session ID string used for authentication purposes and are necessary for the app to function properly. As a result, the app is compliant with CCPA regulations without explicitly informing users of cookie-usage."]
 
     },
 
