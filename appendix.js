@@ -1,11 +1,11 @@
 const Appendix_Items = {
     "True Press": {
         Domain: {
-            Name: "mocknexus.com",
+            Name: "truepress.com",
             Provider: "Namecheap"
         },
 
-        "Repository URL": ["github.com/nickBarak/Mock_Nexus-Generic"],
+        "Repository URL": ["github.com/nickBarak/True_Press"],
 
         "Rendering Methods": ["Server-Side", "Multi-Page", "Pre-Rendered"],
                 
@@ -79,7 +79,7 @@ const Appendix_Items = {
             }
         },
                     
-        "Static Page Count": ["11,429"],
+        "Static Page Count": ["12,741"],
 
         Dependencies: [
             "express",
