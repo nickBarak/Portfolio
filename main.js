@@ -143,7 +143,7 @@ function hideAppDetails(reset=false) {
         setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
 
     if (inChrome && reset && window.innerWidth < 455) {
-        document.getElementsByClassName('swiper-wrapper')[0].style.transform = "translateY(10rem)";
+        document.getElementsByClassName('swiper-wrapper')[0].style.transform = "translateY(4rem)";
     }
     
     document.getElementsByClassName('app-container')[0].style.transform =
