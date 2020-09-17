@@ -37,7 +37,7 @@ function minimizeSwiper() {
     pageEl.style.top = window.innerWidth > 500 ? '8rem' : '5rem';
     
     if (inChrome) {
-        blockSwiper.el.style.transform += ' translateY(-10rem)';
+        // blockSwiper.el.style.transform += ' translateY(-5rem)';
         window.removeEventListener('resize', adjustSwiperInChrome);
     } else setTimeout(_=> window.innerHeight >= 1100 && window.addEventListener('mousemove', scrollToCursor), 500);
 }
