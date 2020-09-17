@@ -694,7 +694,7 @@ tr:nth-child(1) {
   }
 }
 
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 1000px) and (min-width: 651px) {
   #overview {
     font-size: 1.45rem;
     line-height: 2.1rem;
@@ -707,7 +707,7 @@ tr:nth-child(1) {
   }
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 700px) and (min-width: 651px) {
   #overview {
     font-size: 1.25rem;
     line-height: 1.85rem;
