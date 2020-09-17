@@ -380,13 +380,13 @@ const Appendix_Items = {
 
     },
 
-    "Square Match": {
+    "SquareMatch": {
         Domain: {
             Name: "squarematch.xyz",
             Provider: "Namecheap"
         },
 
-        "Repository URL": ["github.com/nickBarak/Square_Match"],
+        "Repository URL": ["github.com/nickBarak/SquareMatch"],
 
         "Rendering Methods": ["Client-Side", "Multi-Page"],
                 

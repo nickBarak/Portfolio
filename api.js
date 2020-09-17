@@ -22,7 +22,7 @@ const pageContent = {
             </div>
             <div class="app" data-key="2" style="transition: transform 350ms ease-in-out, max-height 500ms ease-in-out">
                 <img src="/img/apps/square_match.png" onmouseout="this.style.borderColor = 'black'">
-                <label data-app-name="Square Match">Square Match<label>
+                <label data-app-name="SquareMatch">SquareMatch<label>
             </div>
 
             <div class="app-info-container" style="transition: transform 350ms ease-in">
@@ -91,7 +91,7 @@ const pageContent = {
                 
                 <div class="app-info">
                 
-                    <strong>Square Match</strong>
+                    <strong>SquareMatch</strong>
 
                     <p>
                         This light-weight game application will test your hand-eye-coordination and response time. The game offers two modes of play: one based on clicking (or tapping on a mobile device) and one based on tracing your mouse cursor. A giant square grid filled with 16 smaller squares sits in the middle of the page, with each small square containing the number 16. After initializing the game by either clicking or tracing over a square, the board will begin to change colors and resolve with a relatively even distribution of six distinct colors. At this point, you can begin to manipulate the squares individually. Continuing to click on or trace over squares will cause them to change color again at random.
@@ -102,7 +102,7 @@ const pageContent = {
 
                     <div style="display:flex;">
                         <button class="button" onclick="openURL('https://squarematch.xyz')">Live Demo</button>
-                        <button class="button" onclick="openURL('https://github.com/nickBarak/Square_Match')">Code</button>
+                        <button class="button" onclick="openURL('https://github.com/nickBarak/SquareMatch')">Code</button>
                     </div>
                 </div>
             </div>

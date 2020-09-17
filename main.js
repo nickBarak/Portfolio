@@ -75,8 +75,8 @@ function maximizeSwiper() {
 }
 
 function scrollToCursor(e) {
-    const mousePos = [e.screenX, e.screenY - 180];
-    window.scrollTo(...mousePos);
+    // const mousePos = [e.screenX, e.screenY - 180];
+    // window.scrollTo(...mousePos);
 }
 
 function showAppDetails({ target: { parentElement: { dataset: { key: app } } } }) {
