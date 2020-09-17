@@ -643,8 +643,8 @@ tr:nth-child(1) {
     height: 2rem;
   }
   #overview {
-    -webkit-transform: translateY(-3.25rem);
-            transform: translateY(-3.25rem);
+    -webkit-transform: translateY(-2.75rem);
+            transform: translateY(-2.75rem);
     font-size: 1.3rem;
     line-height: 1.75rem;
     padding: 0 1.75rem;
