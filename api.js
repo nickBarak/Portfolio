@@ -48,7 +48,7 @@ const pageContent = {
                     </p>
 
                     <div class="button-container" style="display:flex; justify-content: center;">
-                        <button class="button" onclick="openURL('https://truepress.online')">Live Demo</button>
+                        <button class="button" onclick="openURL('https://www.truepress.online')">Live Demo</button>
                         <button class="button" onclick="openURL('https://github.com/nickBarak/True_Press')">Code (App)</button>
                         <button class="button" onclick="openURL('https://github.com/nickBarak/Nexus_Data_Crawler')">Code (Spider)</button>
                     </div>

@@ -1,7 +1,7 @@
 const Appendix_Items = {
     "True Press": {
         Domain: {
-            Name: "truepress.com",
+            Name: "truepress.online",
             Provider: "Namecheap"
         },
 
