@@ -9,7 +9,7 @@
   "author": "Nick Barak",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "swiper": "^5.3.6"
   }
 }
